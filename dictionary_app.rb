@@ -13,7 +13,7 @@ response2 = Unirest.get("http://api.wordnik.com:80/v4/word.json/#{input_word}/pr
 pronunciations = response2.body
 
 response3 = Unirest.get("http://api.wordnik.com:80/v4/word.json/cat/topExample?useCanonical=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
-topExample = response3.body
+topexample = response3.body
 
 index = 0
 
@@ -26,4 +26,4 @@ definitions.length.times do
 end
 
 puts "TOP EXAMPLE"
-puts topExample["text"]
+puts topexample["text"]
