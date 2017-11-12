@@ -3,14 +3,12 @@ require "unirest"
 #while true
 system "clear"
 puts "Welcome to the Reddit App!"
-puts "Enter a number"
-input_number = gets.chomp
 
 response = Unirest.get("https://www.reddit.com/r/minimalism/.json") # a web resquest is get + url
 posts = response.body["data"]["children"] # array of posts
 
 index = 0 
-post.length.times do 
+posts.length.times do 
   post = posts[index]
   puts "#{index}. #{post["data"]["title"]}"
   index = index + 1
@@ -24,13 +22,17 @@ permalink = posts[post_index]["data"]["permalink"]
 
 
 
-response2 = Unirest.get("https://www.reddit.com/r/minimalism/comments/7brubl/dont_start_while_you_have_the_flu_xd/.json")
-body2 = response2.body
+response = Unirest.get("https://www.reddit.com#{permalink}.json")
+comments = response.body[1]["data"]["children"]
 
-puts "COMMENTS"
 index = 0
-11.times do
-  puts "#{index}. #{body2[1]["data"]["children"][index]["data"]["body"]}"
+comments.length.times do
+  comment = comments[index]
+  author = comment["data"]["author"]
+  body = comment["data"]["body"]
+  puts "Author #{author}"
+  puts body
+  puts
   index = index + 1
 end
 
