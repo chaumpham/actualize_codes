@@ -4,6 +4,4 @@ items = [
   {id: 3, body: 'foobar'}
   ]
 
-array = []
-items.map {|items| array<< items[:id] }
-p array
+p items.map {|item| item[:id] }
