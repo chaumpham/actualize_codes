@@ -16,13 +16,13 @@ if input_option == "1"
 elsif input_option == "2"
   params = {}
   puts "Print enter the product name:"
-  params["input_name"]
+  params["input_name"] = gets.chomp
   puts "Print enter the price:"
-  params["input_price"]
+  params["input_price"] = gets.chomp
   puts "Print enter the image:"
-  params["input_image"]
+  params["input_image"] = gets.chomp
   puts "Print enter the description:"
-  params["input_description"]
+  params["input_description"] = gets.chomp
   response = Unirest.post("http://localhost:3000/v1/products", parameters: params) 
   product = response.body 
   pp product
