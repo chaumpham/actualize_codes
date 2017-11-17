@@ -7,6 +7,7 @@ puts "Option [1]: View all products"
 puts "Option [2]: Create a new product"
 puts "Option [3]: View a specific product"
 puts "Option [4]: Update a specific product"
+puts "Option [5]: Delete a specific product"
 
 input_option = gets.chomp
 
@@ -48,5 +49,10 @@ elsif input_option == "4"
   response = Unirest.patch("http://localhost:3000/v1/products/#{input_product_id}", parameters: params)
   product = response.body
   pp product
-
+elsif input_option == "5"
+  puts "Enter the id of the product you would like to delete:"
+  input_product_id = gets.chomp
+  response = Unirest.delete("http://localhost:3000/v1/products/#{input_product_id}")
+  product = response.body
+  pp product
 end 
