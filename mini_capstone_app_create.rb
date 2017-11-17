@@ -14,7 +14,18 @@ if input_option == 1
   product = response.body
   pp product
 elsif input_option == 2
-  
+  params = {}
+  puts "Print enter the product name:"
+  params["input_name"]
+  puts "Print enter the price:"
+  params["input_price"]
+  puts "Print enter the image:"
+  params["input_image"]
+  puts "Print enter the description:"
+  params["input_description"]
+  response = Unirest.post("http://localhost:3000/v1/products", parameters: params) 
+  product = response.body 
+  pp product
 
 elsif input_option == 3
   puts "Enter the product id of the product you would like to view:"
