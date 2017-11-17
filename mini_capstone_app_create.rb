@@ -9,11 +9,11 @@ puts "Option [3]: View one specific product"
 
 input_option = gets.chomp
 
-if input_option == 1
+if input_option == "1"
   response = Unirest.get("http://localhost:3000/v1/products")
   product = response.body
   pp product
-elsif input_option == 2
+elsif input_option == "2"
   params = {}
   puts "Print enter the product name:"
   params["input_name"]
@@ -27,7 +27,7 @@ elsif input_option == 2
   product = response.body 
   pp product
 
-elsif input_option == 3
+elsif input_option == "3"
   puts "Enter the product id of the product you would like to view:"
   input_product_id = gets.chomp
   response = Unirest.get("http://localhost:3000/v1/products/#{input_product_id}")
