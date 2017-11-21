@@ -24,6 +24,8 @@ elsif input_option == "2"
   params[:first_name] = gets.chomp
   puts "Enter the contact's last name"
   params[:last_name] = gets.chomp
+  puts "Enter the contact's middle name"
+  params[:middle_name] = gets.chomp
   puts "Enter the contact's email"
   params[:email] = gets.chomp
   puts "Enter the contact's phone number"
@@ -47,6 +49,8 @@ elsif input_option == '4'
   params[:first_name] = gets.chomp
   puts "Enter the contact's new last name"
   params[:last_name] = gets.chomp 
+  puts "Enter the contact's middle name"
+  params[:middle_name] = gets.chomp
   puts "Enter the contact's new email" 
   params[:email] = gets.chomp 
   puts "Enter the contact's new phone number"
@@ -55,7 +59,8 @@ elsif input_option == '4'
   contact = response.body
   pp contact
 
-elsif input_option == '5'
+#elsif input_option == '5'
+
   
 end 
 
