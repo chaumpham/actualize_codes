@@ -30,6 +30,8 @@ elsif input_option == "2"
   params[:email] = gets.chomp
   puts "Enter the contact's phone number"
   params[:phone_number] = gets.chomp
+  puts "Enter the contact's bio"
+  params[:bio] = gets.chomp
   response = Unirest.post("http://localhost:3000/contacts", parameters: params)
   contact = response.body
   pp contact
@@ -55,6 +57,8 @@ elsif input_option == '4'
   params[:email] = gets.chomp 
   puts "Enter the contact's new phone number"
   params[:phone_number] = gets.chomp
+  puts "Enter the contact's bio"
+  params[:bio] = gets.chomp
   response = Unirest.patch("http://localhost:3000/contacts/#{input_id}", parameters: params)
   contact = response.body
   pp contact
