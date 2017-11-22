@@ -48,7 +48,12 @@ elsif input_option == "4"
   params["input_description"] = gets.chomp
   response = Unirest.patch("http://localhost:3000/v1/products/#{input_product_id}", parameters: params)
   product = response.body
-  pp product
+  if product["errors"]
+    puts "Oops! Bad request!"
+    p product["errors"]
+  else
+    pp product
+  end
 elsif input_option == "5"
   puts "Enter the id of the product you would like to delete:"
   input_product_id = gets.chomp
