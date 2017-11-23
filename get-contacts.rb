@@ -34,7 +34,12 @@ elsif input_option == "2"
   params[:bio] = gets.chomp
   response = Unirest.post("http://localhost:3000/contacts", parameters: params)
   contact = response.body
-  pp contact
+  if contact["errors"]
+    puts "Oops! Bad request!"
+    p contact["errors"]
+  else 
+    pp contact
+  end 
 
 elsif input_option == '3'
   puts "Enter id of the contact you wish to display"
@@ -61,8 +66,12 @@ elsif input_option == '4'
   params[:bio] = gets.chomp
   response = Unirest.patch("http://localhost:3000/contacts/#{input_id}", parameters: params)
   contact = response.body
-  pp contact
-
+  if contact["errors"]
+    puts "Oops! Bad request!"
+    p contact["errors"]
+  else 
+    pp contact
+  end 
 #elsif input_option == '5'
 
   

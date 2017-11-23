@@ -4,6 +4,7 @@ require "pp"
 system "clear"
 puts "Welcome to the Mini Capstone Create App!  Please select an option:"
 puts "Option [1]: View all products"
+puts "Option [1.5]: Search for a product by name"
 puts "Option [2]: Create a new product"
 puts "Option [3]: View a specific product"
 puts "Option [4]: Update a specific product"
@@ -13,6 +14,13 @@ input_option = gets.chomp
 
 if input_option == "1"
   response = Unirest.get("http://localhost:3000/v1/products")
+  product = response.body
+  pp product
+elsif input_option == "1.5"
+  puts "Search product name:"
+  input_search = gets.chomp
+  puts "Here are the matching results:"
+  response = Unirest.get("http://localhost:3000/v1/products?search=#{input_search}")
   product = response.body
   pp product
 elsif input_option == "2"
